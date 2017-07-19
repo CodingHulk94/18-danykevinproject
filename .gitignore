@@ -1,0 +1,10 @@
+# .gitignore dans le répertoire du projet
+
+# ne jamais versionner le fichier de config
+inc/config.php
+
+# ni vendor
+vendor
+
+#ni le composer.lock
+composer.lock

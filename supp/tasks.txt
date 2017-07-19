@@ -1,0 +1,27 @@
+﻿Organisation :
+- Estimer le temps de chaque tâche
+- Répartir les tâches
+- Créer le Modèle Conceptuel de Données (MySQLWorkBench)
+- créer la base de données
+- créer le repo Git du projet
+- ajouter collaborateurs
+- créer l'arborescence du projet (dossiers+fichiers)
+- configurer Git Flow
+- choix du Framework CSS (own css)
+
+Code :
+- header (0.5h) Dany
+- footer (0.5h) Dany
+- strucutre HTML (----)
+- formulaire ajout/modification d'un film (2h) Kevin
+- Catalogue : liste des mini-fiches (3h) Dany
+- pagination du catalogue (1h) Dany
+- formulaire de gestion des catégories (2h) Kevin 
+- connexion API Omdb (1h) Kevin
+- fiche détails d'un film (2h) Dany
+- formulaire de recherche (header+home) (2h) Kevin
+- les catégories + nombres de films (1h) Dany
+- les derniers films ajoutés (home) (1h) Kevin
+- filtres & tri (2h) Dany
+- lien suppression film (2h) Kevin
+- Front-end (optionnel)

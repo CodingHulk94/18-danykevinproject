@@ -1,0 +1,15 @@
+{
+    "name": "wf3/projet_toto",
+    "description": "On doit tout refaire",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Dany",
+            "email": "d.lo@outlook.de"
+        }
+    ],
+    "require": {
+        "social-links/social-links": "^1.12",
+        "phpmailer/phpmailer": "^5.2"
+    }
+}
