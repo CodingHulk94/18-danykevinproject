@@ -29,14 +29,14 @@
         <!-- <input type="text" id="synopsis" name="synopsis" placeholder="Synopsis du film" value="<?= $movieResult['mov_synopsis'] ?>"><span id=synopsisError></span><br /> -->
         <label for="year" >Année de sortie</label>
         <input type="number" id="year" name="year" min="1900" max="2020" value="<?= $movieResult['mov_year'] ?>"><span id=yearError></span><br />
-        <label for="category" class="col-sm-2 control-label">Caégorie</label>
+        <label for="category">Caégorie</label>
         <select id="category" name="categoryID">
             <!-- <option value="">choisissez :</option> -->
             <?php foreach ($categoryList as $key=>$value) :?>
                 <option value="<?= $value['cat_id'] ?>" <?php if ($movieResult['category_cat_id'] == $value['cat_id']) : ?> selected <?php endif; ?>><?= $value['cat_name'] ?></option>
 			<?php endforeach; ?>
         </select><span id=categoryError></span><br />
-        <label for="supportDevice" class="col-sm-2 control-label">Support de stockage du fichier</label>
+        <label for="supportDevice">Support de stockage du fichier</label>
         <select id="supportDevice" name="supportID">
             <!-- <option value="">choisissez :</option> -->
             <?php foreach ($supportList as $key => $value) : ?>
@@ -49,9 +49,9 @@
         <input type="hidden" name="submitFile" value="1" />
         <input type="file" name="affiche" id="movieImage" /><span id=titleError></span><br />
 
-        <a href="add_edit_movie.php?movieDeleteID=<?= $movieResult['mov_id'] ?>" class="btn btn-danger btn-sm" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet étudiant ?')">Supprimer</a>
+        <a href="add_edit_movie.php?movieDeleteID=<?= $movieResult['mov_id'] ?>" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet étudiant ?')">Supprimer</a>
         <!-- input caché qui envoie l'id du film à modifier -->
-        <input type="hidden" class="form-control" id="movieID" name="movieID" value="<?= $movieResult['mov_id'] ?>">
+        <input type="hidden" id="movieID" name="movieID" value="<?= $movieResult['mov_id'] ?>">
         <button id="btn-validate"type="submit">Valider</button>
     </form>
 <?php else: ?>
@@ -66,14 +66,14 @@
         <!-- <input type="text" id="synopsis" name="synopsis" placeholder="Synopsis du film"><span id=synopsisError></span><br /> -->
         <label for="year" >Année de sortie</label>
         <input type="number" id="year" name="year" min="1900" max="2020" value="2000"><span id=yearError></span><br />
-        <label for="category" class="col-sm-2 control-label">Caégorie</label>
+        <label for="category" >Caégorie</label>
         <select id="category" name="categoryID">
             <option value="">choisissez :</option>
             <?php foreach ($categoryList as $key => $value) : ?>
                 <option value="<?= $value['cat_id'] ?>"><?= $value['cat_name'] ?></option>
             <?php endforeach; ?>
         </select><span id=categoryError></span><span id=categoryAPI></span><br />
-        <label for="supportDevice" class="col-sm-2 control-label">Support de stockage du fichier</label>
+        <label for="supportDevice" >Support de stockage du fichier</label>
         <select id="supportDevice" name="supportID">
             <option value="">choisissez :</option>
             <?php foreach ($supportList as $key => $value) : ?>
