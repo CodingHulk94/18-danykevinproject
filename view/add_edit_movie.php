@@ -1,6 +1,6 @@
 <?php if (empty($_GET['editID'])) : ?>
-    <form class="" action="" method="get">
-        <input type="text" id="movieIMDb" placeholder="Rechercher dans IMDb">
+    <form id="form-api" class="" action="" method="post">
+        <input type="text" id="movieAPI" placeholder="Rechercher dans OMDb API">
         <button type="submit" >Rechercher</button>
     </form>
 <?php endif; ?>
@@ -25,7 +25,7 @@
         <label for="actors" >Acteurs</label>
         <input type="text" id="actors" name="actors" placeholder="Acteurs du film" value="<?= $movieResult['mov_actors'] ?>"><span id=actorsError></span><br />
         <label for="synopsis" >Synopsis</label>
-        <textarea id="synopsis" rows="8" cols="80" name="synopsis" placeholder="Synopsis du film"><?= $movieResult['mov_synopsis'] ?></textarea><br/>
+        <textarea id="synopsis" rows="4" cols="80" name="synopsis" placeholder="Synopsis du film"><?= $movieResult['mov_synopsis'] ?></textarea><br/>
         <!-- <input type="text" id="synopsis" name="synopsis" placeholder="Synopsis du film" value="<?= $movieResult['mov_synopsis'] ?>"><span id=synopsisError></span><br /> -->
         <label for="year" >Année de sortie</label>
         <input type="number" id="year" name="year" min="1900" max="2020" value="<?= $movieResult['mov_year'] ?>"><span id=yearError></span><br />
@@ -62,7 +62,7 @@
         <label for="actors" >Acteurs</label>
         <input type="text" id="actors" name="actors" placeholder="Acteurs du film"><span id=actorsError></span><br />
         <label for="synopsis" >Synopsis</label>
-        <textarea id="synopsis" rows="8" cols="80" name="synopsis" placeholder="Synopsis du film"></textarea><br/>
+        <textarea id="synopsis" rows="4" cols="80" name="synopsis" placeholder="Synopsis du film"></textarea><br/>
         <!-- <input type="text" id="synopsis" name="synopsis" placeholder="Synopsis du film"><span id=synopsisError></span><br /> -->
         <label for="year" >Année de sortie</label>
         <input type="number" id="year" name="year" min="1900" max="2020" value="2000"><span id=yearError></span><br />
@@ -72,7 +72,7 @@
             <?php foreach ($categoryList as $key => $value) : ?>
                 <option value="<?= $value['cat_id'] ?>"><?= $value['cat_name'] ?></option>
             <?php endforeach; ?>
-        </select><span id=categoryError></span><br />
+        </select><span id=categoryError></span><span id=categoryAPI></span><br />
         <label for="supportDevice" class="col-sm-2 control-label">Support de stockage du fichier</label>
         <select id="supportDevice" name="supportID">
             <option value="">choisissez :</option>
@@ -89,3 +89,25 @@
         <button id="btn-validate"type="submit">Valider</button>
     </form>
 <?php endif; ?>
+<script type="text/javascript">
+    $('#form-api').submit(function(event){
+        event.preventDefault();
+        var title = $('#movieAPI').val();
+        $.ajax({
+        url: "http://www.omdbapi.com/?apikey=36df7672",
+        type: "GET",
+        dataType : 'json',
+        data : {'t' : title},
+        error : function() {
+            console.log('Erreur d\'Ajax');;
+        },
+        success: function(response) {
+            $("#title").val(response.Title);
+            $("#actors").val(response.Actors);
+            $("#synopsis").html(response.Plot);
+            $("#year").val(2011);
+            $( "#categoryAPI" ).html('Choisissez 1 parmi: '+response.Genre);
+        }
+      });
+    });
+</script>
