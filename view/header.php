@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-    <html>
+<html>
     <head>
         <meta charset="utf-8">
         <title>Header</title>
@@ -13,9 +13,14 @@
         <header>
             <nav>
                 <ul>
-                    <li><a href="#"></a></li>
-                    <li><a href="#"></a></li>
-                    <li><a href="#"></a></li>
+                    <li><a href="index.php">Accueil</a></li>
+                    <li><a href="add_edit_category.php">Catégories</a></li>
+                    <li><a href="add_edit_movie.php">Ajouter un film</a></li>
                 </ul>
+                <form class="" action="catalogue.php" method="get">
+                    <input type="text" name="motrecherche" value="" placeholder="Recherche...">
+                    <button type="submit" name="">OK</button>
+                </form>
             </nav>
         </header>
+        <main>

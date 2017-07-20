@@ -2,8 +2,6 @@
 
 require '../inc/config.php';
 
-//$sql = 'INSERT INTO category (cat_name) VALUES ("Romance")';
-//$pdoStatement = $pdo->exec($sql);
 
 
 
