@@ -113,7 +113,7 @@ else if ($formValide) {
                 mov_year = :year,
                 support_sup_id = :supportID,
                 category_cat_id = :categoryID
-                WHERE mov_id = $movieID";
+                WHERE mov_id = $editMovieID";
     }
 
     $pdoStatement = $pdo->prepare($sql);
