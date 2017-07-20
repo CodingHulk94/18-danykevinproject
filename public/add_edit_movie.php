@@ -6,6 +6,7 @@ require '../inc/config.php';
 // Récupérer toutes les catégories
 $sql = "SELECT *
         FROM category
+        ORDER BY cat_name ASC
         ";
 
 $pdoStatement = $pdo->query($sql);
