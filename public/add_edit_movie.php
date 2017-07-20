@@ -144,8 +144,8 @@ else if ($formValide) {
 
 // MODIFICATION D'UN FILM
 // Je récupère toutes les données du film à modifier
-if (!empty($_GET['editID'])) {
-    $movieID = isset($_GET['editID']) ? strip_tags(trim($_GET['editID'])) : '';
+if (!empty($_GET['movieID'])) {
+    $movieID = isset($_GET['movieID']) ? strip_tags(trim($_GET['movieID'])) : '';
 
     $sql = "SELECT *
             FROM movies

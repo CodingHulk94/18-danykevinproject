@@ -1,4 +1,4 @@
-<?php if (empty($_GET['editID'])) : ?>
+<?php if (empty($_GET['movieID'])) : ?>
     <form id="form-api" class="" action="" method="post">
         <input type="text" id="movieAPI" placeholder="Rechercher dans OMDb API">
         <button type="submit" >Rechercher</button>
@@ -18,7 +18,7 @@
 <?php endif; ?>
 
 <!-- vérifie s'il y a un ID dans l'url, si oui alors affiche le formulaire de modification sinon affiche le formulaire d'ajout -->
-<?php if (!empty($_GET['editID'])) : ?>
+<?php if (!empty($_GET['movieID'])) : ?>
     <form class="" action="add_edit_movie.php" method="post" enctype="multipart/form-data">
         <label for="title">Titre</label>
         <input type="text" id="title" name="title" placeholder="Titre du film" value="<?= $movieResult['mov_title'] ?>"><span id=titleError></span><br />
@@ -73,7 +73,7 @@
                 <option value="<?= $value['cat_id'] ?>"><?= $value['cat_name'] ?></option>
             <?php endforeach; ?>
         </select><span id=categoryError></span><span id=categoryAPI></span><br />
-        <label for="supportDevice" >Support de stockage du fichier</label>
+        <label for="supportDevice" movieID>Support de stockage du fichier</label>
         <select id="supportDevice" name="supportID">
             <option value="">choisissez :</option>
             <?php foreach ($supportList as $key => $value) : ?>
