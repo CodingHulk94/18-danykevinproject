@@ -14,6 +14,7 @@
             <nav>
                 <ul>
                     <li><a href="index.php">Accueil</a></li>
+                    <li><a href="catalogue.php">Catalogue</a></li>
                     <li><a href="add_edit_category.php">Catégories</a></li>
                     <li><a href="add_edit_movie.php">Ajouter un film</a></li>
                 </ul>

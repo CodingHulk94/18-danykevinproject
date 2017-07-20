@@ -9,7 +9,6 @@
       <a class="pagebuttonsuiv" href="#">Suivant</a>
 </section>
 <script>
-currentpage = 1;
 function loadPage(currentpage){
     $.ajax({
         url: 'ajax/catalogue.php',
@@ -59,11 +58,11 @@ function loadPage(currentpage){
 }
     $(document).ready(function(){
 
-
+        currentpage = 1;
         var currentHash = location.hash;
-        currentpage = parseInt(currentHash.replace("#", ""));
-
-        console.log(currentHash);
+        if (currentHash !== ""){
+            currentpage = parseInt(currentHash.replace("#", ""));
+        }
 
         loadPage(currentpage);
 
