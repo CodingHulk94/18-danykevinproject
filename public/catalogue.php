@@ -2,6 +2,8 @@
 
 require '../inc/config.php';
 
+//Ici, on calcule une fois le nombre total de films disponibles pour déterminer le maximum de pages
+
 $sql='SELECT * FROM movies';
 
 $pdoStatement = $pdo->query($sql);

@@ -9,6 +9,7 @@
       <a class="pagebuttonsuiv" href="#">Suivant</a>
 </section>
 <script>
+//Reqûete Ajax pour afficher les films selon la page choisie
 function loadPage(currentpage){
     $.ajax({
         url: 'ajax/catalogue.php',
@@ -36,6 +37,7 @@ function loadPage(currentpage){
                 movieshowcase.append("<a href='details.php?movieID='>Détails</a>");
                 movieshowcase.append("<a href='add_edit_movie.php?movieID='>Modifier</a>");
 
+                //Conditions pour l'affiche des boutons suivant et précédent
                 if (currentpage <= 1){
                     $(".pagebuttonprec").css("display", "none");
                 }
@@ -57,23 +59,28 @@ function loadPage(currentpage){
     })
 }
     $(document).ready(function(){
-
+        //On définit comme page de défault la page 1
         currentpage = 1;
+        //On définit la variable currentHash qui a comme valeur le hash actuel de l'URL
         var currentHash = location.hash;
+        //Si le hash existe, on attribue la valeur du hash à la page, sinon la page reste 1 par défaut
         if (currentHash !== ""){
             currentpage = parseInt(currentHash.replace("#", ""));
         }
 
         loadPage(currentpage);
 
+        //Bouton Suivant
         $(".pagebuttonsuiv").on("click", function(event){
+            //Empêchement de recharger
             event.preventDefault();
             currentpage += 1;
             loadPage(currentpage);
-
+            //On définit le hash en lui donnant la valeur de la page actuelle
             location.hash = currentpage;
 
         });
+        //Bouton Précédent
         $(".pagebuttonprec").on("click", function(event){
             event.preventDefault();
             currentpage -= 1;
