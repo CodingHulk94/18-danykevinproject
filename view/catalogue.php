@@ -34,8 +34,8 @@ function loadPage(currentpage){
                 movieshowcase.append("</section>");
                 movieshowcase.append("</article>");
                 movieshowcase.append("<article class='movieshowcaseright'>");
-                movieshowcase.append("<a href='details.php?movieID='>Détails</a>");
-                movieshowcase.append("<a href='add_edit_movie.php?movieID='>Modifier</a>");
+                movieshowcase.append("<a href='details.php?movieID="+response[index]['mov_id']+"'>Détails</a>");
+                movieshowcase.append("<a href='add_edit_movie.php?movieID="+response[index]['mov_id']+"'>Modifier</a>");
 
                 //Conditions pour l'affiche des boutons suivant et précédent
                 if (currentpage <= 1){
