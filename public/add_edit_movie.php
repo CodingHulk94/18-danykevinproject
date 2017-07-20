@@ -159,7 +159,7 @@ if (!empty($_GET['editID'])) {
     }
     else {
         $movieResult = $pdoStatement->fetch(PDO::FETCH_ASSOC);
-        print_r($movieResult);
+        // print_r($movieResult);
     }
 }
 
