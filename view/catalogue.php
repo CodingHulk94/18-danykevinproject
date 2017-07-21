@@ -21,8 +21,7 @@
                 dataType: 'json',
                 data: {
                     'page': currentpage,
-                    'validator' : <?=$Validator?>,
-                    'motrecherche' : '<?=$wordSearch?>'
+                    'validator' : <?=$Validator?>
                 },
                 success: function(response){
                     console.log(response);
