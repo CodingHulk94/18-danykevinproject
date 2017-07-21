@@ -18,8 +18,20 @@ else{
 }
 
 
+// récupérer les 4 derniers films ajoutés
+$sql = "SELECT *
+        FROM movies
+        ORDER BY mov_id DESC
+        LIMIT 4";
 
+$pdoStatement = $pdo->query($sql);
 
+if($pdoStatement === false){
+    print_r($pdo->errorInfo());
+}
+else{
+    $lastMovies = $pdoStatement->fetchAll(PDO::FETCH_ASSOC);
+}
 
 
 require'../view/header.php';
