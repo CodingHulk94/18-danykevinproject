@@ -47,7 +47,7 @@
         <label for="path">Chemin absolu vers le fichier</label>
         <input type="text" id="path" name="path" placeholder="Chemin absolu" value="<?= $movieResult['mov_path'] ?>"><span id=pathError></span><br />
         <label for="movieImage" >Affiche du film</label>
-        <input type="text" name="affiche" id="movieImage" placeholder="URL de l'image"><span id=titleError></span><br />
+        <input type="text" name="affiche" id="movieImage" placeholder="URL de l'image" value="<?= $movieResult['mov_image'] ?>"><span id=titleError></span><br />
 
         <a href="add_edit_movie.php?movieDeleteID=<?= $movieResult['mov_id'] ?>" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet étudiant ?')">Supprimer</a>
         <!-- input caché qui envoie l'id du film à modifier -->
@@ -104,8 +104,8 @@
             $("#title").val(response.Title);
             $("#actors").val(response.Actors);
             $("#synopsis").html(response.Plot);
-            $("#year").val(2011);
-            $( "#categoryAPI" ).html('Choisissez 1 parmi: '+response.Genre);
+            $("#year").val(response.Year);
+            $( "#categoryAPI" ).html(' - Choisissez 1 parmi: '+response.Genre);
             $( "#movieImage" ).val(response.Poster);
         }
       });
