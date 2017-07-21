@@ -1,5 +1,9 @@
 <!-- Déroulant page à faire -->
+    <section id="filtres">
+        <select class="" name="">
 
+        </select>
+    </section>
     <section id="movieshowcase">
 
     </section>
