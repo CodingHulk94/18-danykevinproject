@@ -42,7 +42,7 @@ $successList = array();
 if (!empty($_POST)) {
 
     // id du film à modifier
-    $editMovieID = isset($_POST['movieID']) ? strip_tags(trim($_POST['movieID'])) : 0;
+    $editMovieID = isset($_POST['movieID']) ? intval($_POST['movieID']) : 0;
 
     $movieTitle = isset($_POST['title']) ? strip_tags(trim($_POST['title'])) : '';
 	$movieActors = isset($_POST['actors']) ? strip_tags(trim($_POST['actors'])) : '';

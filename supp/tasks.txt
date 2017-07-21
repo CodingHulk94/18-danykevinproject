@@ -23,5 +23,5 @@ Code :
 - les catégories + nombres de films (1h) Dany
 - les derniers films ajoutés (home) (1h) Kevin
 - filtres & tri (2h) Dany
-- lien suppression film (2h) Kevin - ok
+- lien suppression film (2h) Kevin
 - Front-end (optionnel)

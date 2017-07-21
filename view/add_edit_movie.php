@@ -3,8 +3,8 @@
         <input type="text" id="movieAPI" placeholder="Rechercher dans OMDb API">
         <button type="submit" >Rechercher</button>
     </form>
+    <h2>Ajout d'un nouveau film</h2>
 <?php endif; ?>
-<span>Gestion du film: TITRE DU FILM ICI</span></br>
 <!-- je check s'il existe des erreurs si oui je les affiche -->
 <?php if (!empty($errorList)) : ?>
 	<?php foreach ($errorList as $message) : ?>
@@ -19,6 +19,7 @@
 
 <!-- vérifie s'il y a un ID dans l'url, si oui alors affiche le formulaire de modification sinon affiche le formulaire d'ajout -->
 <?php if (!empty($_GET['movieID'])) : ?>
+    <h2>Gestion du film: <?= $movieResult['mov_title'] ?></h2>
     <form class="" action="add_edit_movie.php" method="post" enctype="multipart/form-data">
         <label for="title">Titre</label>
         <input type="text" id="title" name="title" placeholder="Titre du film" value="<?= $movieResult['mov_title'] ?>"><span id=titleError></span><br />
