@@ -4,16 +4,29 @@ require'../../inc/config.php';
 if(!empty($_POST)){
     //On récupère la valeur envoyée par data dans la requête ajax.
     $pageajax = isset($_POST['page']) ? intval($_POST['page']) : 1;
+    $validatorvalue = isset($_POST['validator']) ? intval($_POST['validator']) : 4;
 
     // JE calcule l'offset correspondant à la page
 
     $offset = $pageajax * 3 - 3;
 
     //Requête
-    $sql = 'SELECT *
-    FROM movies
-    LIMIT 3
-    OFFSET '.$offset.'';
+    if($validatorvalue === 4){
+
+        $sql = 'SELECT *
+        FROM movies
+        LIMIT 3
+        OFFSET '.$offset.'';
+
+    }
+    else if($validatorvalue === 5){
+        $sql = 'SELECT *
+        FROM movies
+        WHERE category_cat_id = 2
+        LIMIT 3
+        OFFSET '.$offset.'';
+    }
+
 
     $ResultSet = $pdo->query($sql);
 

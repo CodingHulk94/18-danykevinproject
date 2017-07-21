@@ -16,6 +16,29 @@ if($pdoStatement === false){
 
 $maxPages = count($filmCount)/3;
 
+$Validator = 4;
+
+if(!empty($_GET['category'])){
+
+    $Validator = 5;
+    $categorypage = isset($_GET['category']) ? intval($_GET['category']) : '';
+
+    //On redéfinit le maximum de pages pour la catégorie sélectionnée
+    $sqlpages='SELECT * FROM movies WHERE category_cat_id = :catid';
+    $pdoStatement = $pdo->prepare($sqlpages);
+    $pdoStatement->bindValue(':catid', $categorypage);
+
+    if($pdoStatement->execute() === false){
+        print_r($pdo->errorInfo());
+    }else{
+        $filmCount = $pdoStatement->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    $maxPages = count($filmCount)/3;
+
+}
+
+
 
 
 require'../view/header.php';
