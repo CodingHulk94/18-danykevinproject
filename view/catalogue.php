@@ -1,7 +1,10 @@
 <!-- Déroulant page à faire -->
     <section id="filtres">
-        <select class="" name="">
-
+        <select id="catfilterselect" class="" name="catfilter">
+            <option value="">Choisissez</option>
+            <?php foreach($CatFilterData as $CatKey => $CatValue) : ?>
+                <option value="<?=$CatValue['cat_id']?>" <?php if($_GET['category'] == $CatValue['cat_id']) : ?> selected <?php endif; ?>><?=$CatValue['cat_name']?></option>
+            <?php endforeach; ?>
         </select>
     </section>
     <section id="movieshowcase">
@@ -22,11 +25,12 @@
                 data: {
                     'page': currentpage,
                     'validator' : <?=$Validator?>,
-                    'motrecherche' : '<?=$wordSearch?>'
+                    'motrecherche' : '<?=$wordSearch?>',
+                    'categoryID' : <?=$categorypageID?>,
+                    'filter' : $("#catfilterselect option:selected").val()
                 },
                 success: function(response){
                     console.log(response);
-                    // alert('<?=$phraseRecherche?>'+ ' résultats')
                     $("#pageindicator").html("Page "+currentpage);
                     $("#movieshowcase").html("");
                     movieshowcase = $("#movieshowcase");
@@ -46,6 +50,7 @@
                         movieshowcase.append("<article class='movieshowcaseright'>");
                         movieshowcase.append("<a href='details.php?movieID="+response[index]['mov_id']+"'>Détails</a>");
                         movieshowcase.append("<a href='add_edit_movie.php?movieID="+response[index]['mov_id']+"'>Modifier</a>");
+                        console.log(Math.floor(parseInt(response[index]['filmtotal'])/3));
 
                         //Conditions pour l'affiche des boutons suivant et précédent
                         if (currentpage <= 1){
@@ -55,10 +60,10 @@
                             $(".pagebuttonprec").css("display", "inline-block");
                         }
 
-                        if(currentpage >= <?=$maxPages?>){
+                        if(currentpage >= parseInt(response[index]['filmtotal'])/3){
                             $(".pagebuttonsuiv").css("display", "none");
                         }
-                        else if(currentpage < <?=$maxPages?>){
+                        else{
                             $(".pagebuttonsuiv").css("display", "inline-block");
                         }
                     }
@@ -102,5 +107,13 @@
                     location.hash = currentpage;
 
                 });
+                //****************************** FILTRES **************************//
+                //Catégories
+                $("#catfilterselect").on("change", function(){
+                    history.pushState("", "", "catalogue.php?category="+$(this).val()+"");
+                    currentpage = 1;
+                    loadPage(currentpage);
+
+                })
             });
     </script>
