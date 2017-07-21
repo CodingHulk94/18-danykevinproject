@@ -26,14 +26,16 @@
                 },
                 success: function(response){
                     console.log(response);
+                    // alert('<?=$phraseRecherche?>'+ ' résultats')
                     $("#pageindicator").html("Page "+currentpage);
                     $("#movieshowcase").html("");
                     movieshowcase = $("#movieshowcase");
+                    movieshowcase.append("<span><?=$phraseRecherche?></span>");
                     for(var index=0; index<response.length; index++){
                         movieshowcase.append("<article class='movieshowcaseleft'>");
                         movieshowcase.append("<section class='affiche'>");
                         movieshowcase.append("<article>");
-                        movieshowcase.append("<img src='' />");
+                        movieshowcase.append("<img src='"+response[index]['mov_image']+"'/>");
                         movieshowcase.append("</article>");
                         movieshowcase.append("<article>");
                         movieshowcase.append("<h3>"+response[index]['mov_id']+response[index]['mov_title']+"</h3>");
@@ -60,6 +62,8 @@
                             $(".pagebuttonsuiv").css("display", "inline-block");
                         }
                     }
+
+
                 },
                 error: function(){
                     alert("You failed");

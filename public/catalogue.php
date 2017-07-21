@@ -16,6 +16,7 @@ if($pdoStatement === false){
 $maxPages = count($filmCount)/3;
 $Validator = 4;
 $wordSearch = '';
+$phraseRecherche = '';
 
 
 //FILTRES
@@ -76,6 +77,13 @@ if (!empty($_GET['motrecherche'])) {
         $filmCount = $pdoStatement->fetchall(PDO::FETCH_ASSOC);
     }
     $maxPages = count($filmCount)/3;
+
+    // Calculer le nombre de résultats trouvés
+    $numberOfResults = 0;
+    foreach ($filmCount as $key => $value) {
+        $numberOfResults += 1;
+    }
+    $phraseRecherche = $numberOfResults.' résultat(s) trouvé(s)';
 }
 
 

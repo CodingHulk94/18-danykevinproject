@@ -55,8 +55,7 @@ if(!empty($_POST)){
         foreach ($AllResults as $key => $value) {
             $numberOfResults += 1;
         }
-        // echo $numberOfResults.' résultat(s) pour le mot '.$wordSearch.'<br>';
-        $phraseRecherche = $numberOfResults.' résultat(s) pour le mot '.$wordSearch;
+        $phraseRecherche = $numberOfResults.' résultat(s) trouvé(s)';
     }
 
     if($validatorvalue !== 6){

@@ -52,6 +52,7 @@ if (!empty($_POST)) {
     $movieCategory = isset($_POST['categoryID']) ? strip_tags(trim($_POST['categoryID'])) : '';
 	$supportDevice = isset($_POST['supportID']) ? strip_tags(trim($_POST['supportID'])) : '';
 	$moviePath = isset($_POST['path']) ? strip_tags(trim($_POST['path'])) : '';
+    $movieImage = $movieTrailer = isset($_POST['affiche']) ? strip_tags(trim($_POST['affiche'])) : '';
 
     $formValide = true;
 
@@ -95,14 +96,20 @@ if (!empty($_POST)) {
         $errorList[] = "Veuillez renseigner le chemin absolu vers le film'<br>";
         $formValide = false;
     }
+    if (empty($movieImage)) {
+		$errorList[] = "Veuillez renseigner l'url de l'affiche<br>";
+		$formValide = false;
+	}
+	if (!filter_var($movieImage, FILTER_VALIDATE_URL)) {
+		$errorList[] = "Le lien url n'est pas valide<br>";
+		$formValide = false;
+	}
 
 
 else if ($formValide) {
     if ($editMovieID == 0) {
-        $sql = "INSERT INTO movies (mov_title, mov_actors, mov_synopsis, mov_path, mov_year, support_sup_id, category_cat_id)
-                VALUES (:title, :actors, :synopsis, :moviePath, :year, :supportID, :categoryID)";
-                // , mov_image
-                // , :image
+        $sql = "INSERT INTO movies (mov_title, mov_actors, mov_synopsis, mov_path, mov_year, support_sup_id, category_cat_id, mov_image)
+                VALUES (:title, :actors, :synopsis, :moviePath, :year, :supportID, :categoryID, :image)";
     }
     else {
         $sql = "UPDATE movies
@@ -112,7 +119,8 @@ else if ($formValide) {
                 mov_path = :moviePath,
                 mov_year = :year,
                 support_sup_id = :supportID,
-                category_cat_id = :categoryID
+                category_cat_id = :categoryID,
+                mov_image = :image
                 WHERE mov_id = $editMovieID";
     }
 
@@ -120,7 +128,7 @@ else if ($formValide) {
 
     $pdoStatement->bindValue(':title', $movieTitle, PDO::PARAM_STR);
     $pdoStatement->bindValue(':actors', $movieActors, PDO::PARAM_STR);
-    // $pdoStatement->bindValue(':image', $studentBirhtdate);
+    $pdoStatement->bindValue(':image', $movieImage);
     $pdoStatement->bindValue(':synopsis', $movieSynopsis, PDO::PARAM_STR);
     $pdoStatement->bindValue(':moviePath', $moviePath);
     $pdoStatement->bindValue(':year', $movieYear, PDO::PARAM_INT);
