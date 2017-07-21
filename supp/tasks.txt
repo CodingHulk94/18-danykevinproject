@@ -10,18 +10,18 @@
 - choix du Framework CSS (own css)
 
 Code :
-- header (0.5h) Dany
-- footer (0.5h) Dany
+- header (0.5h) Dany DONE
+- footer (0.5h) Dany DONE
 - strucutre HTML (----)
-- formulaire ajout/modification d'un film (2h) Kevin - reste à intégrer l'image
-- Catalogue : liste des mini-fiches (3h) Dany
-- pagination du catalogue (1h) Dany
-- formulaire de gestion des catégories (2h) Kevin
-- connexion API Omdb (1h) Kevin - ok
-- fiche détails d'un film (2h) Dany
-- formulaire de recherche (header+home) (2h) Kevin
-- les catégories + nombres de films (1h) Dany
-- les derniers films ajoutés (home) (1h) Kevin
-- filtres & tri (2h) Dany
-- lien suppression film (2h) Kevin
-- Front-end (optionnel)
+- formulaire ajout/modification d'un film (2h) Kevin - reste à intégrer l'image DONE EXCEPT PATH
+- Catalogue : liste des mini-fiches (3h) Dany DONE
+- pagination du catalogue (1h) Dany DONE
+- formulaire de gestion des catégories (2h) Kevin DONE
+- connexion API Omdb (1h) Kevin - ok DONE
+- fiche détails d'un film (2h) Dany DONE
+- formulaire de recherche (header+home) (2h) Kevin DONE
+- les catégories + nombres de films (1h) Dany DONE
+- les derniers films ajoutés (home) (1h) Kevin DONE
+- filtres & tri (2h) Dany RESTE TRI PAR DATE ET NOMBRE DE PAGES
+- lien suppression film (2h) Kevin DONE
+- Front-end (optionnel) A S'ENTRETENIR
