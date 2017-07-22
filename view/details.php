@@ -6,7 +6,7 @@
     </article>
     <article id="detailsectionright">
         <section id="detailtitlecategory">
-            <h3><a href="#">#<?=$ResultSet['mov_id']?> <?=$ResultSet['mov_title']?></a></h3>
+            <h3><a href="<?=$ResultSet['mov_path']?>" target="_blank">#<?=$ResultSet['mov_id']?> <?=$ResultSet['mov_title']?></a></h3>
             <p><?=$ResultSet['cat_name']?></p>
         </section>
         <section id="detaildescription">
