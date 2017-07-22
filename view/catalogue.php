@@ -1,13 +1,17 @@
 <!-- Déroulant page à faire -->
     <section id="filtres">
+        <select id="pageselect" class="" name="">
+
+        </select>
         <select id="catfilterselect" class="" name="catfilter">
             <option value="">Choisissez</option>
             <?php foreach($CatFilterData as $CatKey => $CatValue) : ?>
                 <option value="<?=$CatValue['cat_id']?>" <?php if(!empty($_GET['category'])) : ?><?php if($_GET['category'] == $CatValue['cat_id']) : ?> selected <?php endif; ?><?php endif; ?>><?=$CatValue['cat_name']?></option>
             <?php endforeach; ?>
         </select>
-        <select id="pageselect" class="" name="">
-
+        <select id="tripardateselect" class="" name="">
+          <option value="1">Les plus récents</option>
+          <option value="2">Les plus anciens</option>
         </select>
     </section>
     <section id="movieshowcase">
@@ -30,7 +34,8 @@
                     'validator' : <?=$Validator?>,
                     'motrecherche' : '<?=$wordSearch?>',
                     'categoryID' : <?=$categorypageID?>,
-                    'filter' : $("#catfilterselect option:selected").val()
+                    'filter' : parseInt($("#catfilterselect option:selected").val()),
+                    'datefilter' : parseInt($("#tripardateselect option:selected").val())
                 },
                 success: function(response){
                     console.log(response);
@@ -38,6 +43,12 @@
                     $("#movieshowcase").html("");
                     movieshowcase = $("#movieshowcase");
                     movieshowcase.append("<span><?=$phraseRecherche?></span>");
+                    //Suppression des boutons suivants et précédents quand aucun film affiché!
+                    if(response.length < 1){
+                      $(".pagebuttonprec").css("display", "none");
+                      $(".pagebuttonsuiv").css("display", "none");
+                    }
+
                     for(var index=0; index<response.length; index++){
                         movieshowcase.append("<article class='movieshowcaseleft'>");
                         movieshowcase.append("<section class='affiche'>");
@@ -56,6 +67,8 @@
                         console.log(Math.floor(parseInt(response[index]['filmtotal'])/3));
 
                         //Conditions pour l'affiche des boutons suivant et précédent
+
+
                         if (currentpage <= 1){
                             $(".pagebuttonprec").css("display", "none");
                         }
@@ -137,6 +150,21 @@
                   console.log(currentpage);
                   loadPage(currentpage);
                   location.hash = currentpage;
+                })
+
+                $("#tripardateselect").on("change", function(){
+                  validator = <?=$Validator?>
+                  //On définit comme page de défault la page 1
+                  currentpage = 1;
+                  //On définit la variable currentHash qui a comme valeur le hash actuel de l'URL
+                  var currentHash = location.hash;
+                  //Si le hash existe, on attribue la valeur du hash à la page, sinon la page reste 1 par défaut
+                  if (currentHash !== ""){
+                      currentpage = parseInt(currentHash.replace("#", ""));
+                  }
+
+                  loadPage(currentpage);
+
                 })
             });
     </script>
