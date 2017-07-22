@@ -3,8 +3,11 @@
         <select id="catfilterselect" class="" name="catfilter">
             <option value="">Choisissez</option>
             <?php foreach($CatFilterData as $CatKey => $CatValue) : ?>
-                <option value="<?=$CatValue['cat_id']?>" <?php if($_GET['category'] == $CatValue['cat_id']) : ?> selected <?php endif; ?>><?=$CatValue['cat_name']?></option>
+                <option value="<?=$CatValue['cat_id']?>" <?php if(!empty($_GET['category'])) : ?><?php if($_GET['category'] == $CatValue['cat_id']) : ?> selected <?php endif; ?><?php endif; ?>><?=$CatValue['cat_name']?></option>
             <?php endforeach; ?>
+        </select>
+        <select id="pageselect" class="" name="">
+
         </select>
     </section>
     <section id="movieshowcase">
@@ -66,7 +69,20 @@
                         else{
                             $(".pagebuttonsuiv").css("display", "inline-block");
                         }
+                        pageselecter = $("#pageselect");
+                        pageselecter.html("");
+                        for(var index1=0; index1 < parseInt(response[0]['filmtotal'])/3; index1++){
+                          if((index1+1) !== currentpage){
+                            pageselecter.append("<option value="+(index1+1)+" >"+(index1+1)+"</option>");
+                            console.log("nonegus");
+                          }
+                          else {
+                            pageselecter.append("<option value="+currentpage+" selected >"+currentpage+"</option>");
+                            console.log("negus");
+                          }
+                        }
                     }
+
 
 
                 },
@@ -114,6 +130,13 @@
                     currentpage = 1;
                     loadPage(currentpage);
 
+                })
+
+                $("#pageselect").on("change", function(){
+                  currentpage = parseInt($("#pageselect option:selected").val());
+                  console.log(currentpage);
+                  loadPage(currentpage);
+                  location.hash = currentpage;
                 })
             });
     </script>
