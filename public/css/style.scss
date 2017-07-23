@@ -7,6 +7,7 @@
 **********************************/
 header{
   background-color: black;
+  border-bottom: 1px solid white;
 
   nav{
     display: flex;
@@ -82,6 +83,7 @@ header{
 ************* FOOTER *************
 *********************************/
 footer{
+  border-top: 1px solid white;
   background-color: black;
   display: flex;
   flex-direction: column;
@@ -102,7 +104,194 @@ footer{
 ********************************/
 
 main{
-  background-color: black;
-}
+  background: black;
+
+  #homecontent{
+    padding-bottom: 30px;
+  }
 
   /********* HOMEPAGE *********/
+  .presentation{
+    padding-top: 50px;
+    width: 30%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    img{
+      height: 400px;
+      width: 400px;
+    }
+    p{
+      color: white;
+    }
+  }
+
+  .mainsearch{
+    width: 30%;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    form{
+      width: 100%;
+
+      input{
+        width: 90%;
+        height: 50px;
+        font-size: 2.5rem;
+      }
+
+      button{
+        font-size: 2.5rem;
+        background-color: black;
+        color: white;
+        border: none;
+      }
+    }
+  }
+
+  .maincategories{
+    padding-top: 50px;
+    width: 90%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h2{
+      text-decoration: underline;
+      font-size: 3rem;
+      color: white;
+    }
+    ul{
+      width: 30%;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+
+      li{
+        margin-top: 20px;
+        display: flex;
+        align-items: center;
+        width: 25%;
+        text-align: center;
+
+        a{
+          color: white;
+          text-decoration: underline;
+          transition-duration: 2s;
+
+          &:hover{
+            color: red;
+          }
+        }
+      }
+    }
+  }
+
+  .recentmovies{
+    margin: auto;
+    width: 40%;
+    /****SLIDESHOW****/
+    .mySlides {
+      position: relative;
+      display:none;
+      overflow: hidden;
+
+      .hovershowup{
+        text-align: center;
+        width: 100%;
+        height: 50px;
+        background: rgba(0, 0, 0, 0.5);
+        position: absolute;
+        bottom: -50px;
+        transition: 3s;
+
+        a{
+          color: white;
+          text-decoration: underline;
+        }
+      }
+
+      &:hover{
+        .hovershowup{
+          bottom: 0px;
+        }
+      }
+
+    }
+
+    /* Slideshow container */
+    .slideshow-container {
+      width: 100%;
+      position: relative;
+      margin: auto;
+    }
+
+    img{
+      width: 100%;
+    }
+
+    /* Caption text */
+    .text {
+      color: #f2f2f2;
+      font-size: 15px;
+      padding: 8px 12px;
+      position: absolute;
+      bottom: 8px;
+      width: 100%;
+      text-align: center;
+    }
+
+    /* Number text (1/3 etc) */
+    .numbertext {
+      color: #f2f2f2;
+      font-size: 12px;
+      padding: 8px 12px;
+      position: absolute;
+      top: 0;
+    }
+
+    /* The dots/bullets/indicators */
+    .dot {
+      height: 13px;
+      width: 13px;
+      margin: 0 2px;
+      background-color: #bbb;
+      border-radius: 50%;
+      display: inline-block;
+      transition: background-color 0.6s ease;
+    }
+
+    .active {
+      background-color: #717171;
+    }
+
+    /* Fading animation */
+    .fade {
+      -webkit-animation-name: fade;
+      -webkit-animation-duration: 1.5s;
+      animation-name: fade;
+      animation-duration: 1.5s;
+    }
+
+    @-webkit-keyframes fade {
+      from {opacity: .4}
+      to {opacity: 1}
+    }
+
+    @keyframes fade {
+      from {opacity: .4}
+      to {opacity: 1}
+    }
+
+    /* On smaller screens, decrease text size */
+    @media only screen and (max-width: 300px) {
+      .text {font-size: 11px}
+    }
+  }
+}
