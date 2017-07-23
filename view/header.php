@@ -12,16 +12,19 @@
     <body>
         <header>
             <nav>
-                <ul>
+                <img id="benjamovie" src="img/benjamovie.png" alt="">
+                <div id="navigation">
+                  <ul>
                     <li><a href="index.php">Accueil</a></li>
                     <li><a href="catalogue.php">Catalogue</a></li>
                     <li><a href="add_edit_category.php">Catégories</a></li>
                     <li><a href="add_edit_movie.php">Ajouter un film</a></li>
-                </ul>
-                <form class="" action="catalogue.php" method="get">
+                  </ul>
+                  <form class="" action="catalogue.php" method="get">
                     <input type="text" name="motrecherche" value="" placeholder="Recherche...">
-                    <button type="submit" name="">OK</button>
-                </form>
+                    <button type="submit" name=""><i class="fa fa-search" aria-hidden="true"></i></button>
+                  </form>
+                </div>
             </nav>
         </header>
         <main>
