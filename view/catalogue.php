@@ -50,20 +50,7 @@
                     }
 
                     for(var index=0; index<response.length; index++){
-                        movieshowcase.append("<article class='movieshowcaseleft'>");
-                        movieshowcase.append("<section class='affiche'>");
-                        movieshowcase.append("<article>");
-                        movieshowcase.append("<img src='"+response[index]['mov_image']+"'/>");
-                        movieshowcase.append("</article>");
-                        movieshowcase.append("<article>");
-                        movieshowcase.append("<h3>"+response[index]['mov_id']+response[index]['mov_title']+"</h3>");
-                        movieshowcase.append("<p>"+response[index]['mov_synopsis']+"<p>");
-                        movieshowcase.append("</article>");
-                        movieshowcase.append("</section>");
-                        movieshowcase.append("</article>");
-                        movieshowcase.append("<article class='movieshowcaseright'>");
-                        movieshowcase.append("<a href='details.php?movieID="+response[index]['mov_id']+"'>Détails</a>");
-                        movieshowcase.append("<a href='add_edit_movie.php?movieID="+response[index]['mov_id']+"'>Modifier</a>");
+                        movieshowcase.append("<article class='movieshowcaseleft'><section class='affiche'><article><img src='"+response[index]['mov_image']+"'/></article><article><h3>"+response[index]['mov_id']+response[index]['mov_title']+"</h3><p>"+response[index]['mov_synopsis']+"<p></article></section></article><article class='movieshowcaseright'><a href='details.php?movieID="+response[index]['mov_id']+"'>Détails</a><a href='add_edit_movie.php?movieID="+response[index]['mov_id']+"'>Modifier</a>");
                         console.log(Math.floor(parseInt(response[index]['filmtotal'])/3));
 
                         //Conditions pour l'affiche des boutons suivant et précédent
