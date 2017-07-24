@@ -1,14 +1,17 @@
 <!-- Déroulant page à faire -->
     <section id="filtres">
+        <h3>Pages: </h3>
         <select id="pageselect" class="" name="">
 
         </select>
+        <h3>Catégories: </h3>
         <select id="catfilterselect" class="" name="catfilter">
             <option value="">Choisissez</option>
             <?php foreach($CatFilterData as $CatKey => $CatValue) : ?>
                 <option value="<?=$CatValue['cat_id']?>" <?php if(!empty($_GET['category'])) : ?><?php if($_GET['category'] == $CatValue['cat_id']) : ?> selected <?php endif; ?><?php endif; ?>><?=$CatValue['cat_name']?></option>
             <?php endforeach; ?>
         </select>
+        <h3>Tri par date d'ajout</h3>
         <select id="tripardateselect" class="" name="">
           <option value="1">Les plus récents</option>
           <option value="2">Les plus anciens</option>
@@ -50,7 +53,7 @@
                     }
 
                     for(var index=0; index<response.length; index++){
-                        movieshowcase.append("<article class='movieshowcaseleft'><section class='affiche'><article><img src='"+response[index]['mov_image']+"'/></article><article><h3>"+response[index]['mov_id']+response[index]['mov_title']+"</h3><p>"+response[index]['mov_synopsis']+"<p></article></section></article><article class='movieshowcaseright'><a href='details.php?movieID="+response[index]['mov_id']+"'>Détails</a><a href='add_edit_movie.php?movieID="+response[index]['mov_id']+"'>Modifier</a>");
+                        movieshowcase.append("<div class='orderdiv'><article class='movieshowcaseleft'><section class='affiche'><article class='imageholder'><img src='"+response[index]['mov_image']+"'/></article><article class='descriptionholder'><h1>"+response[index]['mov_id']+". "+response[index]['mov_title']+"</h1><p>"+response[index]['mov_synopsis']+"<p></article></section></article><article class='movieshowcaseright'><a href='details.php?movieID="+response[index]['mov_id']+"'>Détails</a><a href='add_edit_movie.php?movieID="+response[index]['mov_id']+"'>Modifier</a></div>");
                         console.log(Math.floor(parseInt(response[index]['filmtotal'])/3));
 
                         //Conditions pour l'affiche des boutons suivant et précédent
