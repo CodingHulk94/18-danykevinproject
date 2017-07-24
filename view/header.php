@@ -6,8 +6,8 @@
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="css/style.min.css">
-        <link rel="stylesheet" href="/css/kevin.min.css">
-        <link rel="stylesheet" href="/css/dany.min.css">
+        <link rel="stylesheet" href="css/kevin.min.css">
+        <link rel="stylesheet" href="css/dany.min.css">
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
     </head>
