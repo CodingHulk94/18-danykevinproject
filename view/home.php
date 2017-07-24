@@ -68,5 +68,15 @@ function showSlides() {
     Timer = setTimeout(showSlides, 10000); // Change image every 2 seconds
 }
 
+var hoverslideshowstopper = $(".mySlides");
+
+hoverslideshowstopper.on("mouseenter", function(){
+    clearTimeout(Timer);
+});
+
+hoverslideshowstopper.on("mouseleave", function(){
+    Timer = setTimeout(showSlides, 10000);
+})
+
 
 </script>

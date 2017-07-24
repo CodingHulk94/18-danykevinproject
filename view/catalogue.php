@@ -11,7 +11,7 @@
                 <option value="<?=$CatValue['cat_id']?>" <?php if(!empty($_GET['category'])) : ?><?php if($_GET['category'] == $CatValue['cat_id']) : ?> selected <?php endif; ?><?php endif; ?>><?=$CatValue['cat_name']?></option>
             <?php endforeach; ?>
         </select>
-        <h3>Tri par date d'ajout</h3>
+        <h3>Tri par date d'ajout:</h3>
         <select id="tripardateselect" class="" name="">
           <option value="1">Les plus récents</option>
           <option value="2">Les plus anciens</option>
@@ -34,11 +34,11 @@
                 dataType: 'json',
                 data: {
                     'page': currentpage,
-                    'validator' : <?=$Validator?>,
-                    'motrecherche' : '<?=$wordSearch?>',
-                    'categoryID' : <?=$categorypageID?>,
-                    'filter' : parseInt($("#catfilterselect option:selected").val()),
-                    'datefilter' : parseInt($("#tripardateselect option:selected").val())
+                    'validator' : validator,
+                    'motrecherche' : motrecherche,
+                    'categoryID' : categoryID,
+                    'filter' : filter,
+                    'datefilter' : datefilter
                 },
                 success: function(response){
                     console.log(response);
@@ -53,7 +53,7 @@
                     }
 
                     for(var index=0; index<response.length; index++){
-                        movieshowcase.append("<div class='orderdiv'><article class='movieshowcaseleft'><section class='affiche'><article class='imageholder'><img src='"+response[index]['mov_image']+"'/></article><article class='descriptionholder'><h1>"+response[index]['mov_id']+". "+response[index]['mov_title']+"</h1><p>"+response[index]['mov_synopsis']+"<p></article></section></article><article class='movieshowcaseright'><a href='details.php?movieID="+response[index]['mov_id']+"'>Détails</a><a href='add_edit_movie.php?movieID="+response[index]['mov_id']+"'>Modifier</a></div>");
+                        movieshowcase.append("<div class='orderdiv'><article class='movieshowcaseleft'><section class='affiche'><article class='imageholder'><img src='"+response[index]['mov_image']+"'/></article><article class='descriptionholder'><h1>"+response[index]['mov_id']+". "+response[index]['mov_title']+"</h1><h4>Summary</h4><p>"+response[index]['mov_synopsis']+"<p></article></section></article><article class='movieshowcaseright'><a href='details.php?movieID="+response[index]['mov_id']+"'>Détails</a><a href='add_edit_movie.php?movieID="+response[index]['mov_id']+"'>Modifier</a></div>");
                         console.log(Math.floor(parseInt(response[index]['filmtotal'])/3));
 
                         //Conditions pour l'affiche des boutons suivant et précédent
@@ -95,7 +95,11 @@
             })
         }
             $(document).ready(function(){
-                validator = <?=$Validator?>
+                validator = <?=$Validator?>;
+                datefilter = parseInt($("#tripardateselect option:selected").val());
+                categoryID = <?=$categorypageID?>;
+                filter = parseInt($("#catfilterselect option:selected").val());
+                motrecherche = '<?=$wordSearch?>';
                 //On définit comme page de défault la page 1
                 currentpage = 1;
                 //On définit la variable currentHash qui a comme valeur le hash actuel de l'URL
@@ -129,9 +133,11 @@
                 //****************************** FILTRES **************************//
                 //Catégories
                 $("#catfilterselect").on("change", function(){
+                    filter = parseInt($(this).val());
                     history.pushState("", "", "catalogue.php?category="+$(this).val()+"");
                     currentpage = 1;
                     loadPage(currentpage);
+                    location.hash = currentpage;
 
                 })
 
@@ -143,7 +149,9 @@
                 })
 
                 $("#tripardateselect").on("change", function(){
-                  validator = <?=$Validator?>
+                  validator = <?=$Validator?>;
+                  datefilter = parseInt($("#tripardateselect option:selected").val());
+
                   //On définit comme page de défault la page 1
                   currentpage = 1;
                   //On définit la variable currentHash qui a comme valeur le hash actuel de l'URL

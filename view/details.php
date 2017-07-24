@@ -8,7 +8,7 @@
     </article>
     <article id="detailsectionright">
         <section id="detailtitlecategory">
-            <h3><a href="<?=$ResultSet['mov_path']?>" target="_blank">#<?=$ResultSet['mov_id']?> <?=$ResultSet['mov_title']?></a></h3>
+            <h3><?=$ResultSet['mov_id']?>. <?=$ResultSet['mov_title']?></a></h3>
             <h3>Category</h3>
             <p><?=$ResultSet['cat_name']?></p>
         </section>
@@ -17,8 +17,7 @@
             <p><?=$ResultSet['mov_synopsis']?></p>
             <h3>Actors</h3>
             <p><?=$ResultSet['mov_actors']?></p>
-            <h3>Movie Path</h3>
-            <p><?=$ResultSet['mov_path']?></p>
+            <p><a href="<?=$ResultSet['mov_path']?>" target="_blank">Click here to watch!</a></p>
         </section>
     </article>
 </section>

@@ -22,6 +22,11 @@
     margin-top: 30px;
 
     .orderdiv{
+        box-shadow: 0px 5px 10px slategrey;
+        padding-top: 1%;
+        padding-bottom: 1%;
+        padding-left: 1%;
+        background-color: white;
         margin-left: 1%;
         display: flex;
         flex-direction: row;
@@ -48,12 +53,19 @@
                     background-color: #FFD700;
                     box-shadow: 0px 0px 10px 5px white;
 
+                    h4{
+                        font-size: 2rem;
+                        text-align: left;
+                        text-decoration: underline;
+                    }
+
                     h1{
                         margin-top: 0;
                         font-size: 2.5rem;
                     }
 
                     p{
+                        text-align: left;
                         font-size: 1.8rem;
                     }
                 }
@@ -87,8 +99,8 @@
 
                 @-webkit-keyframes glow {
                     from { background-color: #88AAFF; -webkit-box-shadow: 0 0 9px #333; color: white;}
-                    50% { background-color: #FFFFFF; -webkit-box-shadow: 0 0 18px #FFFFFF; color: #FFD700;}
-                    to { background-color: #88AAFF; -webkit-box-shadow: 0 0 9px #88AAFF; color: white;}
+                    50% { background-color: slategrey; -webkit-box-shadow: 0 0 9px white; color: #FFD700;}
+                    to { background-color: #88AAFF; -webkit-box-shadow: 0 0 9px #333; color: white;}
                 }
             }
         }
@@ -126,6 +138,8 @@
 /******** DETAILS *********/
 
 #detailmainsection{
+    box-shadow: 0px 10px 10px slategrey;
+    background-color: white;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
