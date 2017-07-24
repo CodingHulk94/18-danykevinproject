@@ -1,1 +1,175 @@
 //kevin
+/********************************
+**** ADD/EDIT CATEGORY/MOVIE ****
+********************************/
+
+#categoryForm{
+    max-width: 400px;
+}
+// button{
+//     font-weight: bold;
+// }
+
+.box {
+  position:relative;
+  vertical-align: middle;
+  display: inline-block;
+  text-align: center;
+  transition: 0.5s;
+  padding: 0 20px;
+  cursor: pointer;
+  -webkit-transition:0.5s;
+}
+.box:hover {
+  border: 2px solid rgba(0,160,80,0);
+  color: #FFF;
+}
+.box::before, .box::after {
+  width: 100%;
+  height:100%;
+  z-index: 3;
+  content:'';
+  position: absolute;
+  top:0;
+  left:0;
+  box-sizing: border-box;
+  -webkit-transform: scale(0);
+  transition: 0.5s;
+}
+.bar::before {
+  border-bottom: 3px solid #FFF;
+  border-left: 3px solid #FFF;
+  -webkit-transform-origin: 100% 0%;
+}
+.bar::after {
+  border-top: 3px solid #FFF;
+  border-right: 3px solid #FFF;
+  -webkit-transform-origin: 0% 100%;
+}
+.box:hover::after, .box:hover::before {
+  -webkit-transform: scale(1);
+}
+
+.formulaire{
+    border-radius: 5px;
+    color: black;
+    margin: 0 auto;
+    background: #F9F9F9;
+    padding: 25px;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    h2{
+        margin-top: 0;
+        text-align: center;
+    }
+    select{
+        height: 37px;
+        width: 100%;
+        border: 1px solid #ccc;
+        background: #FFF;
+        margin: 5px 0 10px;
+        padding: 10px;
+    }
+    option{
+        height: 15px;
+    }
+    input{
+        width: 100%;
+        border: 1px solid #ccc;
+        background: #FFF;
+        margin: 5px 0 10px;
+        padding: 10px;
+    }
+    label{
+        margin: 10px 0;
+        padding: 10px;
+    }
+    button{
+        cursor: pointer;
+        width: 100%;
+        border: none;
+        background: #FFD700;
+        color: #FFF;
+        margin: 5px 0 5px;
+        padding: 10px;
+        font-size: 15px;
+    }
+    .disabled{
+        background: rgba(#ffd700, 0.3);
+        cursor: auto;
+    }
+    .titleError{
+        color: red;
+        margin: 5px 0 5px;
+    }
+    .success{
+        color: green;
+        margin: 5px 0 5px;
+    }
+    .error{
+        color: red;
+        margin: 5px 0 5px;
+    }
+}
+
+#movieForm{
+    max-width: 1000px;
+    #btn-validate{
+        border: 2px solid #FFD700;
+        position:relative;
+        width: 25%;
+    }
+    .left{
+        float: left;
+        width: 49%
+    }
+    .right{
+        float: right;
+        width: 49%
+    }
+    textarea{
+        width: 100%;
+        max-width: 100%;
+        border: 1px solid #ccc;
+        background: #FFF;
+        margin: 5px 0 10px;
+        padding: 10px;
+    }
+    button{
+        font-weight: bold;
+    }
+}
+
+#form-api{
+    text-align: center;
+    border-top: 1px solid rgba(228, 228, 228, 0.69);
+    border-bottom: 1px solid rgba(228, 228, 228, 0.69);
+    margin-bottom: 20px;
+    input{
+        width: 25%;
+    }
+    button{
+        width: 25%;
+    }
+}
+
+.buttons{
+    width: 100%;
+    text-align: center;
+}
+
+// bouton supprimer film
+.button{
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    background: #FFD700;
+    border: 2px solid #FFD700;
+    color: #FFF;
+    margin: 5px 0 5px;
+    padding: 10px;
+    font-size: 15px;
+    width: 25%;
+    height: 41px;
+    margin-right: 15px;
+}
